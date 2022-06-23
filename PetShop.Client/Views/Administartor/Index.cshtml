@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PetShop.Client.Models.AnimalViewModel>
+@{
+
+    ViewData["Title"] = "CatalogViews";
+}
+@inject PetShop.Service.Interfaces.IAgeService ageService
+<div>
+    <form>
+        <select name="id" onchange="this.form.submit()" asp-items="ViewBag.categories">
+            <option value="null">All Categories</option>
+        </select>
+    </form>
+    <input type="button" value="Create" onclick="location.href='@Url.Action("Create", "Administartor")'" />
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @ageService.Age(item.BirthDate)
+                </td>
+                <td>
+                    <img src="~/images/@item.PhotoUrl" alt="Image" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AnimalId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AnimalId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

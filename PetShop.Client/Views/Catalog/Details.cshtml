@@ -1,0 +1,64 @@
+﻿@model PetShop.Data.Models.Animal
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="background">
+    <div class="container">
+        <div class="panel pricing-table">
+
+            <div class="pricing-plan">
+                <img src="~/images/@Model.PhotoUrl" alt="Image" class="pricing-img" width="100" />
+                <h2 class="pricing-header">
+                    @Html.DisplayFor(model => model.Name)
+                </h2>
+                <ul class="pricing-features">
+                    @Html.DisplayNameFor(model => model.Description)
+                    @Html.DisplayFor(model => model.Description)
+                </ul>
+                <ul class="pricing-features">
+                    @Html.DisplayNameFor(model => model.BirthDate)
+                    @Html.DisplayFor(model => model.BirthDate)
+                </ul>
+                <ul class="pricing-features">
+                    @Html.DisplayNameFor(model => model.Category)
+                    @Html.DisplayFor(model => model.Category.Name)
+                </ul>
+
+                <a asp-action="Index">Back to List</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="add-comment">
+    <table>
+        <form asp-action="AddComment">
+        <tr>
+            <input type="hidden" asp-for="AnimalId" />
+            <td>Post Description:</td>
+            <td><textarea id="Content" name="content" rows="10" cols="60" wrap="virtual"></textarea></td>
+            </form>
+            <td>
+                <input type="submit" value="AddComment" />
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th> Comments</th>
+        </tr>
+        @foreach (var comment in @Model.Comments)
+        {
+            <tr>
+                <th class="col-sm-10">
+                    @comment.Content
+                </th>
+            </tr>
+        }
+    </table>
+</p>

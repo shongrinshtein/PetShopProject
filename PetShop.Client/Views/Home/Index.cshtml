@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PetShop.Data.Model.AnimalForView>
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Photo
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Comments
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@item.Animal.PhotoUrl" alt="Image" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animal.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animal.Description)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountComments)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

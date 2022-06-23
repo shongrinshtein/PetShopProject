@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <nav class="style-3">
+        <ul class="menu-3">
+            <li>
+                <a name="link" asp-action="Index" asp-controller="Home">Home</a>
+            </li>
+            <li>
+                <a name="link" asp-action="index" asp-controller="Catalog">Catalog</a>
+            </li>
+            <li>
+                <a name="link" asp-action="index" asp-controller="Administartor">Administartor</a>
+            </li>
+        </ul>
+    </nav>
+
+    @*
+        <div class="div-layout">
+        </div>
+    *@
+    <div>
+        <h1>The Best Pet Shop In Town</h1>
+        <div> @RenderBody()</div>
+    </div>
+</body>
+</html>
