@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.Data", "PetShop.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.Service", "PetShop.Service\PetShop.Service.csproj", "{A50564D3-D566-4810-9366-7DBA45813695}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.Tests", "PetShop.Tests\PetShop.Tests.csproj", "{7905784E-B9E0-48A4-8BAE-025F4E4FC9D1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{A50564D3-D566-4810-9366-7DBA45813695}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A50564D3-D566-4810-9366-7DBA45813695}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A50564D3-D566-4810-9366-7DBA45813695}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7905784E-B9E0-48A4-8BAE-025F4E4FC9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7905784E-B9E0-48A4-8BAE-025F4E4FC9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7905784E-B9E0-48A4-8BAE-025F4E4FC9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7905784E-B9E0-48A4-8BAE-025F4E4FC9D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
