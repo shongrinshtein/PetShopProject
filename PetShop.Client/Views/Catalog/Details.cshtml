@@ -37,16 +37,16 @@
 
 <p class="add-comment">
     <table>
-        <form asp-action="AddComment">
+        <form asp-action="AddComment" enctype="multipart/form-data">
         <tr>
             <input type="hidden" asp-for="AnimalId" />
             <td>Post Description:</td>
-            <td><textarea id="Content" name="content" rows="10" cols="60" wrap="virtual"></textarea></td>
-            </form>
+            <td><textarea id="Content" name="content" rows="10" cols="60" wrap="hard"></textarea></td>
             <td>
                 <input type="submit" value="AddComment" />
             </td>
         </tr>
+        </form>
     </table>
     <table>
         <tr>

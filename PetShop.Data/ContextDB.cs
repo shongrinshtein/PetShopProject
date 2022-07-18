@@ -28,6 +28,40 @@ namespace PetShop.Data.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Animal>(entity =>
+            {
+                entity.ToTable("Animal");
+
+                entity.Property(e => e.BirthDate).HasColumnType("date");
+
+                entity.Property(e => e.Name).HasMaxLength(200);
+
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Animals)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("FK__Animal__Category__267ABA7A");
+            });
+
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.ToTable("Category");
+
+                entity.Property(e => e.Name).HasMaxLength(200);
+            });
+
+            modelBuilder.Entity<Comment>(entity =>
+            {
+                entity.ToTable("Comment");
+
+                entity.Property(e => e.Content).HasColumnName("content");
+
+                entity.HasOne(d => d.Animal)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.AnimalId)
+                    .HasConstraintName("FK__Comment__AnimalI__29572725");
+            });
+
+            OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
